@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "holdem"
+  site-url: "https://galopyz.github.io/holdem"
+  description: "Simple Texas hold'em"
+  repo-branch: main
+  repo-url: "https://github.com/galopyz/holdem"

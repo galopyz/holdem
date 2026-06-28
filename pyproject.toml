@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "holdem"
+dynamic = ["version"]
+description = "Simple Texas hold'em"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+authors = [{name = "Solveit", email = "nobody@fast.ai"}]
+keywords = ['nbdev']
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+]
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/galopyz/holdem"
+Documentation = "https://galopyz.github.io/holdem/"
+
+[project.entry-points.nbdev]
+holdem = "holdem._modidx:d"
+
+[tool.setuptools.dynamic]
+version = {attr = "holdem.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["holdem"]
+
+[tool.nbdev]
