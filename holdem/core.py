@@ -7,5 +7,5 @@ Docs: https://galopyz.github.io/holdemcore.html.md"""
 # %% auto #0
 __all__ = ['foo']
 
-# %% ../nbs/00_core.ipynb #63b24a79
+# %% ../nbs/00_core.ipynb #705d3c49
 def foo(): pass
