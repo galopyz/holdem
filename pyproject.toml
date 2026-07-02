@@ -9,7 +9,7 @@ description = "Simple Texas hold'em"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "Apache-2.0"}
-authors = [{name = "Solveit", email = "nobody@fast.ai"}]
+authors = [{name = "galopyz", email = "shipalnomoo@gmail.com"}]
 keywords = ['nbdev']
 classifiers = [
     "Programming Language :: Python :: 3",
