@@ -7,3 +7,8 @@ website:
   description: "Simple Texas hold'em"
   repo-branch: main
   repo-url: "https://github.com/galopyz/holdem"
+
+format-links:
+  - html
+  - format: commonmark
+    text: Markdown
