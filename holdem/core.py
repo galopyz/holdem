@@ -49,6 +49,11 @@ def __lt__(self: Card, other: Card): return rank_values[self.rank] < rank_values
 @patch
 def __eq__(self: Card, other: Card): return rank_values[self.rank] == rank_values[other.rank]
 
+# %% ../nbs/00_core.ipynb #309effa9
+# limited: Works with `L[arg]`, but loses the parameter info inside L. Use `types.GenericAlias`
+@patch
+def __class_getitem__(cls: L, *item): return cls
+
 # %% ../nbs/00_core.ipynb #7c487938
 def get_ranks_counts(cards: list[Card]) -> L[tuple[int, ...], tuple[int, ...]]:
     """Return ((ranks...), (counts...)) sorted by count then by rank value from cards"""
