@@ -6,8 +6,9 @@ Docs: https://galopyz.github.io/holdem/core.html.md"""
 
 # %% auto #0
 __all__ = ['suits', 'ranks', 'Card', 'c1', 'rank_values', 'get_ranks_counts', 'is_flush', 'is_straight', 'evaluate_hand',
-           'compare_hands', 'mk_deck', 'shuffle_deck', 'withdraw_card', 'Action', 'human', 'always_call',
-           'always_check', 'always_fold', 'always_raise', 'Player', 'ActionHandler', 'Stage', 'Round', 'act']
+           'compare_hands', 'hand_name', 'mk_deck', 'shuffle_deck', 'withdraw_card', 'equity', 'Action', 'human',
+           'always_call', 'always_check', 'always_fold', 'always_raise', 'Player', 'ActionHandler', 'Stage', 'Round',
+           'act', 'Game']
 
 # %% ../nbs/00_core.ipynb #7e7fcc2f
 from fastcore.utils import *
@@ -102,6 +103,26 @@ def compare_hands(hands: list[list[Card]]) -> tuple:
     """Return the winning hand rank among `hands`."""
     return max(evaluate_hand(h) for h in hands)
 
+# %% ../nbs/00_core.ipynb #491fa4c1
+_RANK = {2:'two',3:'three',4:'four',5:'five',6:'six',7:'seven',8:'eight',9:'nine',
+         10:'ten',11:'jack',12:'queen',13:'king',14:'ace'}
+_HAND = {10:'royal flush',9:'straight flush',8:'four of a kind',7:'full house',
+         6:'flush',5:'straight',4:'three of a kind',3:'two pair',2:'one pair',1:'high card'}
+
+# %% ../nbs/00_core.ipynb #5388aad4
+def hand_name(rank: tuple) -> str:
+    "Readable name for an `evaluate_hand` tuple, e.g. (7,3,2) -> 'full house, threes over twos'."
+    cat, vals = rank[0], rank[1:]
+    name = _HAND[cat]
+    if cat == 10: return name
+    if cat in (9, 5): return f"{name}, {_RANK[vals[0]]}-high"
+    if cat in (8, 4): return f"{name}, {_RANK[vals[0]]}s"
+    if cat == 7: return f"{name}, {_RANK[vals[0]]}s over {_RANK[vals[1]]}s"
+    if cat == 6: return f"{name}, {_RANK[vals[0]]}-high"
+    if cat == 3: return f"{name}, {_RANK[vals[0]]}s and {_RANK[vals[1]]}s"
+    if cat == 2: return f"{name}, {_RANK[vals[0]]}s"
+    return f"{name}, {_RANK[vals[0]]}-high"
+
 # %% ../nbs/00_core.ipynb #b01df9a4
 def mk_deck(suits: list = suits, ranks: list = ranks) -> L:
     "Create a deck with given suits and ranks"
@@ -118,6 +139,28 @@ def withdraw_card(deck: list[Card], n: int=1) -> list[Card]:
     "Withdraw `n` cards from `deck` and return them. Modifies `deck` in place."
     if len(deck) < n: raise ValueError(f"Not enough cards: asked for {n}, only {len(deck)} left")
     return [deck.pop() for _ in range(n)]
+
+# %% ../nbs/00_core.ipynb #3331caea
+def equity(hand: list[Card], community: list[Card] = (), n_opponents: int = 1,
+           n_sims: int = 10_000, seed: int = None) -> dict:
+    """Monte Carlo estimate of win/tie/lose fractions for `hand` given `community` vs `n_opponents`. 
+    Pass `seed` for reproducible classroom demos."""
+    if n_opponents < 1: raise ValueError('n_opponents must be >= 1')
+    hand, community = list(hand), list(community)
+    known = set(hand) | set(community)
+    deck = [c for c in mk_deck() if c not in known]
+    rng = random.Random(seed)
+    wins = ties = 0
+    fill = 5 - len(community)
+    for _ in range(n_sims):
+        rng.shuffle(deck)
+        n_opp = 2*n_opponents
+        board = community + deck[n_opp : n_opp+fill]
+        mine = evaluate_hand(hand + board)
+        best = max(evaluate_hand(deck[2*j:2*j+2] + board) for j in range(n_opponents))
+        if mine > best: wins += 1
+        elif mine == best: ties += 1
+    return {'win': wins/n_sims, 'tie': ties/n_sims, 'lose': 1-(wins+ties)/n_sims}
 
 # %% ../nbs/00_core.ipynb #a0320337
 class Action(Enum):
@@ -320,3 +363,29 @@ def act(game, player, round):
     except StopIteration:
         player = None
     return player
+
+# %% ../nbs/00_core.ipynb #11a8cb5f
+class Game:
+    def __init__(self, players):
+        self.players = players
+        self._round = None
+        self._gen = None
+        self.current = None  # human to act; None = hand over
+
+    def start(self):
+        "Deal a fresh hand and advance to the first human turn."
+        self._round = Round(players=self.players)
+        self._gen = self._round.start_round()
+        self.current = next(self._gen, None)
+        print(self.state())
+
+    def act(self):
+        "Play one human turn (AI turns auto-play inside the generator)."
+        if self.current is None: return
+        try:
+            self.current = self._gen.send(self.current.perform_action(self._round.stage_bet))
+        except StopIteration:
+            self.current = None
+        print(self.state())
+
+    def state(self): return self._round.state() if self._round else "Game is over"
