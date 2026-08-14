@@ -21,6 +21,9 @@ dependencies = []
 Repository = "https://github.com/galopyz/holdem"
 Documentation = "https://galopyz.github.io/holdem/"
 
+[project.entry-points.pyskills]
+"holdem.skill" = "holdem.skill"
+
 [project.entry-points.nbdev]
 holdem = "holdem._modidx:d"
 
