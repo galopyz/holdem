@@ -172,9 +172,8 @@ class Action(Enum):
 # %% ../nbs/00_core.ipynb #1f3ca451
 def human(): 
     while True:
-        act, *amnt = input("Choose your action").split()
-        if (action := getattr(Action, act.upper(), None)):
-            return (action, int(*amnt) if amnt else 0)
+        act, *amnt = input("Choose your action. Type 'call', 'check', 'fold', 'raise X' with X to raise the bet.").split()
+        if (action := getattr(Action, act.upper(), None)): return (action, int(*amnt) if amnt else 0)
         print(f"Invalid action: {act}. Try again.")
 
 # %% ../nbs/00_core.ipynb #91a68457
