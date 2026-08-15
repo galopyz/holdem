@@ -1,6 +1,6 @@
 # holdem
 
-> Simple Texas hold'em
+> Teach Texas hold'em as a hands-on playground for learning poker strategy, probability, and decision-making through live play.
 
 ## Modules
 

@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pyholdem"
 dynamic = ["version"]
-description = "Simple Texas hold'em"
+description = "Teach Texas hold'em as a hands-on playground for learning poker strategy, probability, and decision-making through live play."
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "Apache-2.0"}
