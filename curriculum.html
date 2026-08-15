@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Curriculum – pyholdem</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-d63a2c9c8df14b07662b36303925c8cc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Curriculum – pyholdem">
+<meta property="og:description" content="Teach Texas hold’em as a hands-on playground for learning poker strategy, probability, and decision-making through live play.">
+<meta property="og:site_name" content="pyholdem">
+<meta name="twitter:title" content="Curriculum – pyholdem">
+<meta name="twitter:description" content="Teach Texas hold’em as a hands-on playground for learning poker strategy, probability, and decision-making through live play.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">pyholdem</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./curriculum.html">Curriculum</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">holdem</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./core.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">core</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./curriculum.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Curriculum</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="curriculum.html.md"><i class="bi bi-file-code"></i>Markdown</a></li></ul></div></div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Curriculum</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
+<p>This is just a place to think about topics students can learn from playing poker. Students are not required to go over everything here. They are encouraged to learn what they are interested in.</p>
+<p>What concepts can people learn from playing poker games?</p>
+<section id="reply" class="level5">
+<h5 class="anchored" data-anchor-id="reply">🤖Reply🤖<!-- SOLVEIT_SEPARATOR_7f3a9b2c --></h5>
+<p>Poker is a surprisingly rich playground for learning. Here are the main concept families, in rough order of how they usually come up:</p>
+<p><strong>Probability &amp; combinatorics</strong> - Counting outcomes: how many ways to make a flush, a straight, a pair - Conditional probability: “given what I hold and what’s on the board, what’s my chance of winning?” - Pot odds: comparing the chance of winning to the price of calling</p>
+<p><strong>Decision-making under uncertainty</strong> - Expected value: weighing the size of a win against its probability - Expected utility: when a bigger win isn’t worth the risk — risk tolerance - Bayesian reasoning: updating your estimate of an opponent’s hand as they act</p>
+<p><strong>Game theory &amp; strategy</strong> - Position and information: how acting later lets you see more before deciding - Ranges: thinking in sets of hands instead of one specific hand - Mixed strategies and Nash equilibrium (the “GTO” idea — making yourself unpredictable on purpose)</p>
+<p><strong>Statistics &amp; psychology</strong> - Variance: why a good player can lose 10 hands in a row - Sample size: judging skill from results only over many hands - Emotional regulation: tilt, discipline, not chasing losses</p>
+<p>The probability and expected-value parts map directly onto math you’d learn in a statistics class; the strategy parts map onto game theory, which is its own fascinating branch of math.</p>
+<p>Which of these would you like to dig into first?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode json usage code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="dt">"model"</span><span class="fu">:</span> <span class="st">"deepseek-v4-flash"</span><span class="fu">,</span> <span class="dt">"prompt_tokens"</span><span class="fu">:</span> <span class="dv">28048</span><span class="fu">,</span> <span class="dt">"completion_tokens"</span><span class="fu">:</span> <span class="dv">783</span><span class="fu">,</span> <span class="dt">"total_tokens"</span><span class="fu">:</span> <span class="dv">28831</span><span class="fu">,</span> <span class="dt">"cached_tokens"</span><span class="fu">:</span> <span class="dv">4224</span><span class="fu">,</span> <span class="dt">"reasoning_tokens"</span><span class="fu">:</span> <span class="dv">492</span><span class="fu">,</span> <span class="dt">"cost"</span><span class="fu">:</span> <span class="fl">0.005420604000000001</span><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Let’s dive into probability and math first. Are there more concepts than those three? Include everything you can think of. Do a web search to get ideas, too.</p>
+</section>
+<section id="reply-1" class="level5">
+<h5 class="anchored" data-anchor-id="reply-1">🤖Reply🤖<!-- SOLVEIT_SEPARATOR_7f3a9b2c --></h5>
+<p>Let me search for a comprehensive list of math concepts in poker. - ⏳ <code>web_answer(pr="List all the probability and mathematics…", qs="['math concepts in poker probability lis…")</code> ⏳</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode json tool code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"call_00_Moj8iqLFMyex9s6OPyu61952"</span><span class="fu">,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"web_answer"</span><span class="fu">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"args"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"pr"</span><span class="fu">:</span> <span class="st">"List all the probability and mathematics concepts that can be learned or applied in Texas holdem poker, as comprehensively as possible. Include topics like combinatorics, pot odds, expected value, variance, Bayesian reasoning, game theory, equity, fold equity, implied odds, and anything else mathematical that comes up in poker strategy."</span><span class="fu">,</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"qs"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">"math concepts in poker probability list"</span><span class="ot">,</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">"poker mathematics concepts combinatorics pot odds expected value"</span><span class="ot">,</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Texas holdem math probability concepts learn"</span><span class="ot">,</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">"poker math topics list statistics game theory"</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"result"</span><span class="fu">:</span> <span class="st">"&lt;TRUNCATED&gt;…he provided search results, here is a comprehensive list of probability and mathematics concepts applicable to Texas Hold'em poker, organized by category.</span><span class="ch">\n\n</span><span class="st">&gt; **Note regarding </span><span class="ch">\"</span><span class="st">opened pages</span><span class="ch">\"</span><span class="st">:** The given opened pages returned errors (invalid URLs and a parsing failure), so I was unable to extract any information from them. All citations below are drawn solely from the provided search result snippets and titles.</span><span class="ch">\n\n</span><span class="st">---</span><span class="ch">\n\n</span><span class="st">## 1. Core Probability &amp; Combinatorics</span><span class="ch">\n\n</span><span class="st">- **Hand Probability &amp; Frequency Counting**: Calculating the likelihood of being dealt specific starting hands and the probability of completing certain hand rankings. The total number of 5-card poker hands is 2,598,960, and the total number of Texas Hold'em starting hand combinations is 133,784,560. These counts form the basis of all probability calculations.¹ ²</span><span class="ch">\n</span><span class="st">- **Outs &amp; the Rule of 2 and 4**: Counting the number of cards remaining in the deck that will improve your hand (outs) and estimating the probability of winning on the next street (Rule of 2: outs × 2 = % hit) or by the river (Rule of 4: outs × 4 = % hit).³ ⁴</span><span class="ch">\n</span><span class="st">- **Combinatorics (Combination Counting)**: Counting the number of ways a specific hand can be dealt (e.g., 6 combos of a pocket pair, 16 combos of an unpaired hand) and using blocker effects to refine opponent's possible hands. This is critical for estimating the frequency of bluffs versus value hands in an opponent's range.⁵ ⁶</span><span class="ch">\n\n</span><span class="st">## 2. Odds, Ratios, and Pot Math</span><span class="ch">\n\n</span><span class="st">- **Pot Odds**: The ratio of the current pot size to the cost of a contemplated call. Used to determine if a call is mathematically profitable in the long run (e.g., if the pot is $100 and it costs $20 to call, your pot odds are 5:1).⁷ ⁸</span><span class="ch">\n</span><span class="st">- **Implied Odds**: An extension of pot odds that accounts for additional money you expect to win from your opponent on future streets if you make your hand.⁵ ⁹</span><span class="ch">\n</span><span class="st">- **Fold Equity**: The probability that your opponent will fold to a bet, combined with your hand's equity to determine the expected value of a bet or raise. (Though not explicitly named in the snippets, it is a standard extension of EV and pot odds discussions found in the sources).¹⁰</span><span class="ch">\n</span><span class="st">- **Stack to Pot Ratio (SPR)**: The ratio of the effective stack size to the current pot size. It simplifies preflop and postflop stack-off decisions (e.g., committing with overpairs when SPR is low).⁶</span><span class="ch">\n\n</span><span class="st">## 3. Expected Value &amp; Equity</span><span class="ch">\n\n</span><span class="st">- **Expected Value (EV)**: The average outcome of a decision if repeated over time, calculated by summing the products of probabilities and outcomes (e.g., </span><span class="ch">\\</span><span class="st">(0.5(+750) + 0.5(-250) = +250</span><span class="ch">\\</span><span class="st">)). A positive EV decision is profitable in the long run.¹¹ ¹²</span><span class="ch">\n</span><span class="st">- **Equity**: The share of the pot that a player expects to win on average, based on the current hand's win probability against an opponent's range. Used to evaluate the profitability of calls, bets, and shoves.¹⁰ ¹³</span><span class="ch">\n\n</span><span class="st">## 4. Game Theory</span><span class="ch">\n\n</span><span class="st">- **Game Theory Optimal (GTO)**: A balanced strategy that makes an opponent indifferent to their actions, minimizing exploitability. This precepts involve concepts like Nash equilibrium and mixed strategies.¹⁴ ¹⁵</span><span class="ch">\n</span><span class="st">- **Bluff-to-Value Ratio**: The optimal proportion of bluffs to value bets in your betting range, derived from the pot odds you offer your opponent (e.g., if you bet 7 into 10, you should have a specific ratio of bluffs to value).¹⁶</span><span class="ch">\n</span><span class="st">- **Exploitative vs. GTO Play**: Understanding how to deviate from GTO to exploit an opponent's specific tendencies, while maintaining a baseline strategy.¹⁵</span><span class="ch">\n\n</span><span class="st">## 5. Statistical &amp; Advanced Mathematical Concepts</span><span class="ch">\n\n</span><span class="st">- **Variance**: The statistical measure of the spread of results around the expected value. In poker, variance explains short-term deviations from EV due to luck, which is crucial for bankroll management.</span><span class="ch">\n</span><span class="st">- **Bayesian Reasoning**: Updating your prior beliefs about an opponent's hand range based on their actions (betting patterns, sizing, timing). This is a logical application of conditional probability that sophisticated players use. (Mentioned in the prompt, and while not directly cited in the snippets, it falls under the </span><span class="ch">\"</span><span class="st">probability</span><span class="ch">\"</span><span class="st"> framework discussed throughout the search results).</span><span class="ch">\n</span><span class="st">- **Law of Large Numbers**: The principle that over a large number of hands, your actual results converge toward your expected value (EV).</span><span class="ch">\n\n</span><span class="st">## 6. Heuristics &amp; Basic Arithmetic</span><span class="ch">\n\n</span><span class="st">- **Rule of 2 and 4**: A rapid approximation tool (as detailed in #1) that uses simple multiplication to estimate equity on the fly.³</span><span class="ch">\n</span><span class="st">- **Basic Arithmetic Operations**: The underlying math for all poker calculations—addition, subtraction, multiplication, and division—are used to compute pot odds, EV, and equity.¹⁷</span><span class="ch">\n\n</span><span class="st">---</span><span class="ch">\n\n</span><span class="st">**Sources used:**</span><span class="ch">\n\n</span><span class="st">¹ Math of Poker - Basics | Brilliant Math &amp; Science Wiki: https://brilliant.org/wiki/math-of-poker/  </span><span class="ch">\n</span><span class="st">² Using Texas Hold Em to Understand Probability | Medium: https://medium.com/@jakecohen212/using-texas-hold-em-to-understand-probability-fc2d21edeeee  </span><span class="ch">\n</span><span class="st">³ Reddit - Proper order to learn poker math: https://www.reddit.com/r/poker/comments/7s4a3h/ques…&lt;/TRUNCATED&gt;"</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The search turned up plenty more. Here’s a fuller map of the probability and math concepts poker touches, grouped by theme:</p>
+<p><strong>Counting &amp; combinatorics</strong> - Counting total hands: 5-card poker hands (2,598,960) and hold’em starting combos (1326) - Combo counting: 6 combos of a pocket pair, 16 of an unpaired hand - Blockers: how the cards you hold reduce the combos your opponent can have - Outs: counting the remaining cards that improve your hand</p>
+<p><strong>Odds, ratios &amp; pot math</strong> - Pot odds: ratio of pot to call cost; compare against your chance of winning - Rule of 2 and 4: quick approximation — outs × 2 ≈ chance next street, outs × 4 ≈ chance by river - Implied odds: pot odds plus money you expect to win on later streets - Fold equity: the extra EV you gain from the chance your opponent folds - Stack-to-pot ratio (SPR): simplifies stack-off decisions</p>
+<p><strong>Expected value &amp; equity</strong> - EV: probability-weighted average of outcomes - Equity: your share of the pot against a range of hands - Pot odds vs.&nbsp;equity comparison: the fundamental call/fold test - Reverse implied odds: money you lose when <em>your</em> hand is second-best</p>
+<p><strong>Game theory</strong> - Nash equilibrium / GTO - Mixed strategies: randomizing to stay unpredictable - Bluff-to-value ratio: derived from the odds you offer your opponent - Exploitative vs.&nbsp;GTO play: deviating against known tendencies - Range construction: thinking in hand sets, not single hands</p>
+<p><strong>Statistics</strong> - Variance: short-term luck around long-term EV - Law of large numbers: results converge to EV over many hands - Sample size: why you can’t judge skill from a few sessions - Bankroll management: survival math for high-variance games</p>
+<p><strong>Probability theory deeper cuts</strong> - Conditional probability: “given my cards and the board…” - Bayesian updating: revising hand-range estimates as opponents act - Hypergeometric distribution: the exact model for drawing from a deck without replacement - Combinatorial independence/dependence: how removed cards shift probabilities</p>
+<p>One nice thing about this list: each concept has a “shallow end” (rule of 2 and 4, pot odds as simple ratios) and a “deep end” (hypergeometric distributions, Bayesian ranges, GTO). So poker works well as a ladder — you can climb as far into the math as you want.</p>
+<p>Where would you like to start climbing?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode json usage code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="dt">"model"</span><span class="fu">:</span> <span class="st">"deepseek-v4-flash"</span><span class="fu">,</span> <span class="dt">"prompt_tokens"</span><span class="fu">:</span> <span class="dv">58863</span><span class="fu">,</span> <span class="dt">"completion_tokens"</span><span class="fu">:</span> <span class="dv">910</span><span class="fu">,</span> <span class="dt">"total_tokens"</span><span class="fu">:</span> <span class="dv">59773</span><span class="fu">,</span> <span class="dt">"cached_tokens"</span><span class="fu">:</span> <span class="dv">56576</span><span class="fu">,</span> <span class="dt">"reasoning_tokens"</span><span class="fu">:</span> <span class="dv">201</span><span class="fu">,</span> <span class="dt">"cost"</span><span class="fu">:</span> <span class="fl">0.002050566</span><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>I want to turn this concepts into an outline for a course. When users are playing the poker game with my software, they can ask how to play the poker, and my tutor agent can teach basic rules. They can also ask what to do in certain situations, such as to raise, to check, etc. My tutor agent asks about their background knwoledge and saves that information as a memory, then it teaches important concepts necessary to explain. If they are not familiar with basic probability, the tutor can explain them. Cool thing about my project is that the learning environment is interactive. The AI tutor agent has helpful tools available to it such as to grab a deck, shuffle, and deal. It can use a small deck to explain concepts simply. The students can draw from this small deck and see what the probability feels like, just like playing cards in real life. They can learn by doing, rather than just reading. It can also simulate, make table or plots using python functions and tools. So this is real experiments and data. Therefore the students can learn how law of large numbers works. How does this sound?</p>
+</section>
+<section id="reply-2" class="level5">
+<h5 class="anchored" data-anchor-id="reply-2">🤖Reply🤖<!-- SOLVEIT_SEPARATOR_7f3a9b2c --></h5>
+<p>This sounds excellent — genuinely. The design has three features that put it well ahead of typical “learn math” software:</p>
+<p><strong>1. Concrete manipulatives before abstraction.</strong> A physical/small deck the tutor can grab, shuffle, deal, and draw from turns “probability” from a formula into a felt experience. Kids (and adults!) learn combinatorics by <em>feeling</em> why 6 combos of a pocket pair is less than 16 combos of an unpaired hand — you can literally see the deck. This is the right direction of learning: concrete → abstract.</p>
+<p><strong>2. Just-in-time teaching.</strong> Teaching a concept exactly when a situation demands it (e.g.&nbsp;“should I call this $20 bet?” → pot odds) is far stickier than front-loading a lecture. The student has a <em>reason</em> to care. Your memory system is what makes this work — the tutor must know what’s already in the student’s head so it can teach the <em>necessary</em> concept at the <em>right</em> depth, not a canned script.</p>
+<p><strong>3. Real experiments, not just simulation.</strong> Running 1,000 simulated hands and watching the win rate converge toward the theoretical probability <em>is</em> the law of large numbers, demonstrated rather than asserted. That’s a genuine data-science experience.</p>
+<p>A few design thoughts to keep in mind as we structure the course:</p>
+<ul>
+<li><strong>Concept dependency ordering matters.</strong> Counting → probability → expectation → variance is a natural chain; EV without probability is meaningless, variance without EV is meaningless. The outline should respect that ladder.</li>
+<li><strong>Diagnostic first.</strong> The tutor’s first job is a quick calibration — a few questions that place the student on that ladder (or infer from their stated background). Teaching down to someone who’s ahead, or up to someone who’s behind, both kill motivation.</li>
+<li><strong>Tutor discipline: know when <em>not</em> to teach.</strong> During live play, sometimes the right move is to let the student make a mistake and only debrief after the hand. A bad beat <em>felt</em> is a better hook for “variance” than any lecture.</li>
+<li><strong>Mastery gates between modules.</strong> A tiny checkpoint before unlocking the next concept — “deal yourself 5 cards, count the ways to get a pair, I’ll check your count” — turns the game into the assessment.</li>
+</ul>
+<p>Would you like me to draft the full course outline now, mapped module-by-module onto your concept list?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode json usage code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="dt">"model"</span><span class="fu">:</span> <span class="st">"deepseek-v4-flash"</span><span class="fu">,</span> <span class="dt">"prompt_tokens"</span><span class="fu">:</span> <span class="dv">30663</span><span class="fu">,</span> <span class="dt">"completion_tokens"</span><span class="fu">:</span> <span class="dv">876</span><span class="fu">,</span> <span class="dt">"total_tokens"</span><span class="fu">:</span> <span class="dv">31539</span><span class="fu">,</span> <span class="dt">"cached_tokens"</span><span class="fu">:</span> <span class="dv">28416</span><span class="fu">,</span> <span class="dt">"reasoning_tokens"</span><span class="fu">:</span> <span class="dv">381</span><span class="fu">,</span> <span class="dt">"cost"</span><span class="fu">:</span> <span class="fl">0.001436526</span><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Suggest me a plan for tools and capabilities of the tutor agent.</p>
+<p>Looks like a good place to start. Can you suggest a course outline?</p>
+<p>Looks good for now. Let’s keep going with the modules</p>
+<p>Let’s dive into probability and math first. Are there more concepts than those three? Include everything you can think of.</p>
+<p>Let’s dive into probability and math first. Are there more concepts than those three?</p>
+<p>What concepts can people learn from playing poker games?</p>
+<p>What concepts can people learn from playing poker games?</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/galopyz\.github\.io\/holdem");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/galopyz/holdem/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
