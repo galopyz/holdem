@@ -4,7 +4,7 @@ project:
 website:
   title: "pyholdem"
   site-url: "https://galopyz.github.io/holdem"
-  description: "Simple Texas hold'em"
+  description: "Teach Texas hold'em as a hands-on playground for learning poker strategy, probability, and decision-making through live play."
   repo-branch: main
   repo-url: "https://github.com/galopyz/holdem"
 
