@@ -2,7 +2,7 @@
 
 Modules:
 
-- `holdem.skill`: Teach Texas hold'em by playing: let learners drive the game, ask what they'd do and why, and dive into concepts only when curiosity strikes."""
+- `holdem.skill`: Teach Texas hold'em as a hands-on playground for learning poker strategy, probability, and decision-making through live play."""
 
 __version__ = "0.0.1"
 from .core import *
