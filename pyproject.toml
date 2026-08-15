@@ -3,7 +3,7 @@ requires = ["setuptools>=64"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "holdem"
+name = "pyholdem"
 dynamic = ["version"]
 description = "Simple Texas hold'em"
 readme = "README.md"
