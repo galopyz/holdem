@@ -7,7 +7,7 @@
 
 **Why it exists**: Poker is a natural classroom for mathematics with topics ranging from combinatorics, pot odds, expected value, variance, Bayesian reasoning, and game theory. In traditional classroom settings, those topics are taught from bottom up, and it’s often hard to see how these topics are directly connected to anything important and useful in practice. Students therefore lose interest, become demotivated, and learn less. **holdem** lets a tutor agent and student play actual hands, so concepts come up when they matter or when students are curious. The students have clear goals on what and why they want to learn, rather than the whole curriculum imposed on them. It’s like how we learned to play soccer (or any game) as kids. We learned about rules and strategies slowly as we needed to play the game over time.
 
-The learning is hands-on: students run Monte Carlo simulations ([`equity`](https://galopyz.github.io/holdem/core.html#equity)) to watch win rates converge, count outcomes on small decks, and experiment with code that generate real data. The tutor’s philosophy is play-first: explain only what the learner asks about, check prerequisites before diving in, and treat wrong answers as teaching moments.
+The learning is hands-on: students run Monte Carlo simulations (`equity`) to watch win rates converge, count outcomes on small decks, and experiment with code that generate real data. The tutor’s philosophy is play-first: explain only what the learner asks about, check prerequisites before diving in, and treat wrong answers as teaching moments.
 
 I hope students have fun playing, and enjoy asking questions and thinking about them. It may be challenging and hard at times, but it’s fun hard. And play on your pace. The tutor isn’t going anywhere.
 
@@ -22,11 +22,12 @@ game.act()     # one human turn; bots auto-play; repeat until "Game is over"
 ```
 
 Key pieces:
-- `Player(username, balance, strategy)` — [`human`](https://galopyz.github.io/holdem/core.html#human) puts a learner in the seat; [`always_call`](https://galopyz.github.io/holdem/core.html#always_call)/[`always_check`](https://galopyz.github.io/holdem/core.html#always_check)/[`always_fold`](https://galopyz.github.io/holdem/core.html#always_fold)/`always_raise(n)` create bot personalities
-- [`Game.start()`](https://galopyz.github.io/holdem/core.html#game.start) / [`Game.act()`](https://galopyz.github.io/holdem/core.html#game.act) / [`Game.state()`](https://galopyz.github.io/holdem/core.html#game.state) — play one turn per cell so learners can explore between turns; `start()` again deals a fresh hand
-- [`evaluate_hand`](https://galopyz.github.io/holdem/core.html#evaluate_hand), [`compare_hands`](https://galopyz.github.io/holdem/core.html#compare_hands), [`hand_name`](https://galopyz.github.io/holdem/core.html#hand_name) — hand ranking, e.g. `(7,3,2)` → `'full house, threes over twos'`
+
+- `Player(username, balance, strategy)` — `human` puts a learner in the seat; `always_call`/`always_check`/`always_fold`/`always_raise(n)` create bot personalities
+- `Game.start()` / `Game.act()` / `Game.state()` — play one turn per cell so learners can explore between turns; `start()` again deals a fresh hand
+- `evaluate_hand`, `compare_hands`, `hand_name` — hand ranking, e.g. `(7,3,2)` → `'full house, threes over twos'`
 - `equity(hand, community, n_opponents, n_sims)` — Monte Carlo win/tie/lose estimate; pass a `seed` for reproducible classroom demos
-- `mk_deck(suits, ranks)`, [`shuffle_deck`](https://galopyz.github.io/holdem/core.html#shuffle_deck), [`withdraw_card`](https://galopyz.github.io/holdem/core.html#withdraw_card) — build small decks (e.g. `mk_deck(suits[:2], ranks[:5])`) to make counting outcomes concrete before switching to real odds
+- `mk_deck(suits, ranks)`, `shuffle_deck`, `withdraw_card` — build small decks (e.g. `mk_deck(suits[:2], ranks[:5])`) to make counting outcomes concrete before switching to real odds
 
 ## Usage
 
@@ -41,7 +42,7 @@ $ pip install git+https://github.com/galopyz/holdem.git
 or from [pypi](https://pypi.org/project/holdem/)
 
 ``` sh
-$ pip install holdem
+$ pip install pyholdem
 ```
 
 ### Documentation

@@ -2,7 +2,7 @@ project:
   output-dir: _docs
 
 website:
-  title: "holdem"
+  title: "pyholdem"
   site-url: "https://galopyz.github.io/holdem"
   description: "Simple Texas hold'em"
   repo-branch: main
